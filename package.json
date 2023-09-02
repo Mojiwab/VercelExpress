@@ -1,0 +1,15 @@
+{
+  "name": "vercelexpress",
+  "version": "1.0.0",
+  "description": "\"Simple api to fetch and save data to mongoDb\"",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Chandrabhan Singh Parihar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0"
+  }
+}
