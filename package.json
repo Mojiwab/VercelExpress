@@ -2,9 +2,9 @@
   "name": "vercelexpress",
   "version": "1.0.0",
   "description": "\"Simple api to fetch and save data to mongoDb\"",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app"
+    "start": "index app"
   },
   "author": "Chandrabhan Singh Parihar",
   "license": "ISC",
