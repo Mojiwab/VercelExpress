@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const rateLimit = require('express-rate-limit');
-const contentRouter = require('./contentRouter');
+const questionRouter = require('./router/questionRouter');
 
 const rateLimitOptions = {
     max: 200,
@@ -13,9 +13,7 @@ const rateLimitOptions = {
 app.use('/api', rateLimit(rateLimitOptions));
 app.use(express.json({ limit: '10kb' }));
 
-
-// app.use('/api/v1/auth', authHandler);
-app.use('/api/v1/user', contentRouter);
+app.use('/api/v1/questions', questionRouter);
 
 // Handling undefined routes 404
 app.all('*', (req, res, next) => {
@@ -25,12 +23,10 @@ app.all('*', (req, res, next) => {
     });
 });
 
-
-
-
-
-
-
-
+app.use((err, req, res, next) => {
+    console.error(`error ${err.message}`)
+    const status = err.status || 400;
+    res.status(status).send(err.message)
+});
 
 module.exports = app;
