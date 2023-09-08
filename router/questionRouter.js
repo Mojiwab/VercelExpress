@@ -23,7 +23,9 @@ const Question = mongoose.model('Question', questionSchema);
 
 
 router.get('/', async (req, res) => {
-    const questions = await Question.find({});
+    const questions = await Question.find({}).select({
+        __v: 0
+    });
     res.json(questions).status(200);
 });
 

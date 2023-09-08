@@ -1,7 +1,14 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const questionRouter = require('./router/questionRouter');
+
+const corsOptions = {
+    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'], // react app origin 
+    credentials: true
+};
+app.use(cors(corsOptions));
 
 const rateLimitOptions = {
     max: 200,

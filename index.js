@@ -6,10 +6,8 @@ const dbString = `mongodb+srv://courageTheCowardlyDog:e2VkXTwpdQzDa19v@dummyproj
 const port = 5050;
 
 mongoose.connect(dbString).then((con) => {
-    console.log('Connection done at - ', dbString)
+    console.log('Database connected.')
 });
-
-
 
 app.listen(port, () => {
     console.log('App started');
